@@ -31,17 +31,11 @@ for ($i = 0; $i < count($inputUser); $i++) {
 
 foreach ($calcArr as $key => $value) {
     if (isset($_GET[$key])) {
-        $count = 0;
-        for ($i = 0; $i < strlen($_GET['num']); $i++) {
-            if ($_GET['num'][$i] == ".") {
-                $count++;
-            }
-        }
-        if (preg_match_all("#\D#", $_GET['num']) && $count != 1) {
+        if (!preg_match_all("#(\d|\d*\.\d*)#", $_GET['num'])) {
             print "<script>document.getElementById('error').innerHTML = 'Введите число';</script>";
             break;
         }
-        if (preg_match_all("#\d#", $_GET['num'])  && $count == 1) {
+        if (preg_match_all("#(\d|\d*\.\d*)#", $_GET['num'])) {
             $sign = $_GET['hidden_sign'] . $value;
             $res = $_GET['hidden'] + $_GET['num'];
             break;
@@ -57,16 +51,10 @@ if (isset($_GET['square_root'])) {
 }
 
 if (isset($_GET['equal'])) {
-    $count = 0;
-    for ($i = 0; $i < strlen($_GET['hidden']); $i++) {
-        if ($_GET['hidden'][$i] == ".") {
-            $count++;
-        }
-    }
-    if (preg_match_all("#\D#", $_GET['num']) && $count != 1) {
+    if (!preg_match_all("#(\d|\d*\.\d*)#", $_GET['num'])) {
         print "<script>document.getElementById('error').innerHTML = 'Введите число';</script>";
     }
-    if (preg_match_all("#\d#", $_GET['num'])  && $count == 1) {
+    if (preg_match_all("#(\d|\d*\.\d*)#", $_GET['num'])) {
         $res = $_GET['hidden'] + $_GET['num'];
         $sign = $_GET['hidden_sign'];
         switch ($sign) {
