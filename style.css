@@ -1,0 +1,39 @@
+h1 {
+    font-family: Impact;
+    font-size: 70px;
+}
+
+form {
+    width: 300px;
+}
+
+.container {
+    background-color: rgb(255, 255, 161) !important;
+}
+
+input {
+    text-align: center !important;
+    font-family: Impact !important;
+    margin: 6px !important;
+    padding: 20px !important;
+}
+
+::-webkit-input-placeholder {
+    color: #ffc107 !important;
+}
+
+#text_form {
+    border: 1px solid #ffc107 !important;
+    color: #ffc107;
+    height: 63px;
+    font-family: Arial !important;
+}
+
+.btn {
+    height: 63px !important;
+    width: 49px !important;
+}
+
+.special {
+    width: 130px !important;
+}
